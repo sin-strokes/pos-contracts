@@ -49,7 +49,6 @@ forge test
 
 ### Run unit tests
 
-
 #### Main chain and side chain
 
 - Main chain
@@ -117,14 +116,14 @@ override with `MAINNET_RPC_URL` / `POLYGON_POS_RPC_URL` if you need better rate 
 
 It prints a table and exits non-zero if anything is a real mismatch.
 
-| Status | Meaning |
-|---|---|
-| `MATCH_NO_META` | **The expected pass.** Identical once the trailing metadata is stripped. |
-| `MATCH` | Byte-identical including metadata. Rare — see below. |
-| `MISMATCH` | Logic differs. Both stripped blobs are dumped to `verify-onchain/diffs/`. |
-| `STALE_POINTER` | The live system no longer points at the address we pin — see below. |
-| `POINTER_UNRESOLVED` | The liveness call could not be read at all. Usually a flaky RPC, **not** drift — retry before investigating. |
-| `NO_CODE` / `MISSING_ARTIFACT` | Nothing deployed at the address / the local build produced no artifact. |
+| Status                         | Meaning                                                                                                      |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `MATCH_NO_META`                | **The expected pass.** Identical once the trailing metadata is stripped.                                     |
+| `MATCH`                        | Byte-identical including metadata. Rare — see below.                                                         |
+| `MISMATCH`                     | Logic differs. Both stripped blobs are dumped to `verify-onchain/diffs/`.                                    |
+| `STALE_POINTER`                | The live system no longer points at the address we pin — see below.                                          |
+| `POINTER_UNRESOLVED`           | The liveness call could not be read at all. Usually a flaky RPC, **not** drift — retry before investigating. |
+| `NO_CODE` / `MISSING_ARTIFACT` | Nothing deployed at the address / the local build produced no artifact.                                      |
 
 Only `MATCH` and `MATCH_NO_META` pass; every other status exits non-zero. Verifying zero contracts
 (a typo'd chain argument, say) is also an error rather than a clean run.
@@ -158,7 +157,7 @@ schema. The fields that matter:
   reported as `STALE_POINTER` naming the address now returned, and the fix is to repoint the
   inventory and re-run to see whether the new implementation still reproduces.
 
-Because those build inputs are load-bearing, a plain `forge build` will *silently* mismatch several
+Because those build inputs are load-bearing, a plain `forge build` will _silently_ mismatch several
 contracts. Any CI guard has to drive the build the same way this script does.
 
 The script temporarily relaxes `IStakeManager`'s pragma so the 0.5.11-era proxies compile, and
