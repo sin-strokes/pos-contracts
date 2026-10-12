@@ -3,21 +3,21 @@ export class LogDecoder {
     contractInterfaces.forEach((contractInterface) => {
       logs = logs.map((log) => {
         try {
-          const parsedLog = contractInterface.parseLog(log)
+          const parsedLog = contractInterface.parseLog(log);
           return {
             address: log.address.toLowerCase(),
             event: parsedLog.name,
             signature: parsedLog.signature,
-            args: parsedLog.args
-          }
+            args: parsedLog.args,
+          };
         } catch (e) {
-          return log
+          return log;
         }
-      })
-    })
-    return logs
+      });
+    });
+    return logs;
   }
 }
 
-const logDecoder = new LogDecoder()
-export default logDecoder
+const logDecoder = new LogDecoder();
+export default logDecoder;

@@ -129,7 +129,6 @@ Pre-configured RPCs in `foundry.toml` (all use Tenderly's public gateways — no
 
 Select a network with `--rpc-url <name>`. To override a default with a private endpoint (higher limits, or a Tenderly access-token URL), set the per-chain env var Foundry honours — e.g. `MAINNET_RPC_URL`, `POLYGON_POS_RPC_URL`. Add `--broadcast` to send transactions, and `--verify` to verify on Etherscan (requires `ETHERSCAN_API_KEY` for Ethereum networks and `POLYGONSCAN_API_KEY` for Polygon networks in `.env`). If verification times out, re-run with `--resume` instead of `--broadcast`.
 
-
 ## Releases
 
 Releases should be created whenever the code on the main branch is updated to reflect a deployment or an upgrade on a network. The release should be named after the version of the contracts deployed or upgraded.

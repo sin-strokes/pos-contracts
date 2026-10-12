@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v6.0.0
     hooks:
       - id: mixed-line-ending
         args: ["--fix=lf"]
@@ -15,7 +15,7 @@ repos:
         exclude: "^lib/"
         pass_filenames: true
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: "v3.0.3"
+    rev: "v4.0.0-alpha.8"
     hooks:
       - id: prettier
         name: Format non solidity files with prettier
